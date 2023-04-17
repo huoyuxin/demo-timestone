@@ -1,24 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Typography, Space, Button} from 'antd';
 import './App.css';
+
+const {Title} = Typography;
+
+export enum PageType {
+  ChromeRule = 'Chrome Rule',
+  AutoTrack = 'Auto Track',
+}
+export const PagePath = {
+  [PageType.ChromeRule]: '/chrome-rule',
+  [PageType.AutoTrack]: '/auto-track',
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Title>Welcome Timestone VIP ~~</Title>
+
+      <Space>
+        <Button href={PagePath[PageType.ChromeRule]}>
+          go to Chrome Rule page
+        </Button>
+        <Button href={PagePath[PageType.AutoTrack]}>
+          go to Auto Track page
+        </Button>
+      </Space>
     </div>
   );
 }

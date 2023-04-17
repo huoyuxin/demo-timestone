@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#root {
+  padding: 25px;
+  box-sizing: border-box;
+  background-color: #efefef;
+}
+.ant-card {
+  height: 270px;
+}
+
+.block {
+  display: block;
+}
+.mt {
+  margin-top: 12px;
+}
+.mb {
+  margin-bottom: 12px;
+}
+.mr {
+  margin-right: 12px;
+}
