@@ -1,4 +1,5 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom';
 import {Typography, Space, Button} from 'antd';
 import './App.css';
 
@@ -14,15 +15,20 @@ export const PagePath = {
 };
 
 function App() {
+  const navigate = useNavigate();
+  const goto = (path: string) => {
+    navigate(path);
+  };
+
   return (
     <div className="App">
       <Title>Welcome Timestone VIP ~~</Title>
 
       <Space>
-        <Button href={PagePath[PageType.ChromeRule]}>
+        <Button onClick={() => goto(PagePath[PageType.ChromeRule])}>
           go to Chrome Rule page
         </Button>
-        <Button href={PagePath[PageType.AutoTrack]}>
+        <Button onClick={() => goto(PagePath[PageType.AutoTrack])}>
           go to Auto Track page
         </Button>
       </Space>

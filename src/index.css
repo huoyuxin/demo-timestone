@@ -13,6 +13,7 @@ code {
 }
 
 #root {
+  min-height: 100vh;
   padding: 25px;
   box-sizing: border-box;
   background-color: #efefef;

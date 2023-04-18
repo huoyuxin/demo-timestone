@@ -36,7 +36,11 @@ function TrackingContent() {
         </Card>
       </Col>
       <Col span={12}>
-        <Card title="Impression Part" bordered={false}>
+        <Card
+          className="timestone-impression"
+          title="Impression Part"
+          bordered={false}
+        >
           some module to track impression
         </Card>
       </Col>

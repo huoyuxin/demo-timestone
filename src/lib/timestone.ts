@@ -1,4 +1,5 @@
 import {timestoneTracker} from '@timestone/tracker';
+import {Operation, Pages} from '@timestone/tracker/types/interface';
 
 const config = {
   // todo: 区分 uat \ live 环境
@@ -21,6 +22,49 @@ const config = {
   // 2. 可选数据，需要在 Point 编辑时注册 dataField。埋点触发时执行，实时获取
   optionsData: {
     is_multi_button_option: () => true,
+  },
+
+  // for auto track config
+  autoTrackDataGetter: ({
+    operation,
+    pages,
+    currentPages,
+    element,
+  }: {
+    operation: Operation;
+    pages?: Pages[];
+    currentPages?: Pages[];
+    element?: Element;
+  }) => {
+    let sectionEl = undefined;
+    if (operation !== 'scroll') {
+      sectionEl = element;
+    } else {
+      let parent = element?.parentElement;
+      while (!sectionEl && parent) {
+        if (parent.classList.contains('timestone-scroll')) {
+          sectionEl = parent;
+          console.log(
+            'sectionEl',
+            sectionEl,
+            sectionEl?.getAttribute('page-section')
+          );
+        }
+        parent = parent?.parentElement;
+      }
+    }
+
+    const reportObj = {
+      operation,
+      page_type: currentPages?.[0]?.page_name || '',
+      page_section: sectionEl?.getAttribute('page-section') || '',
+      target_type: element?.getAttribute('target-type') || '',
+      data: {
+        // do not put dynamic data here
+        fixed_key: 'fixed_value',
+      },
+    };
+    return reportObj;
   },
 };
 

@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {routers} from './route';
-import timestone from './timestone';
-// 开始跟踪埋点
-timestone.track();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

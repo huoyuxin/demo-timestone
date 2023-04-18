@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Card, Typography} from 'antd';
-import TrackingCnt from '../../component/tracking-content';
-import timestone from '../../timestone';
+import TrackingCnt from './tracking-content';
+import timestone from '../../lib/timestone';
 
 const {Title} = Typography;
 
@@ -17,7 +17,9 @@ function ChromeRule() {
   }, []);
   return (
     <div className="">
-      <Title level={2}>Chrome Rule Demo</Title>
+      <Title level={2}>
+        Chrome Rule Demo - 更少的代码改动、新增埋点无需发版
+      </Title>
       <TrackingCnt />
       <Card className="mt" title="Action Part" bordered={false}>
         some special case
